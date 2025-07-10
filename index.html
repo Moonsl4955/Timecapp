@@ -202,7 +202,7 @@ document.getElementById('letterForm').addEventListener('submit', async function(
     email: formData.get('email'),
     content: formData.get('content')
   };
-  const res = await fetch('http://localhost:3000/api/letter', {
+  const res = await fetch('http://1.238.240.22:3000/api/letter', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
