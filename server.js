@@ -55,7 +55,7 @@ async function sendLetterEmail(letter) {
 }
 
 const cron = require('node-cron');
-const Letter = require('./Letter');
+
 
 // 2026년 1월 1일 0시에 실행 (서버가 켜져 있어야 함)
 cron.schedule('0 0 1 1 *', async () => {
