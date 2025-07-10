@@ -1,0 +1,256 @@
+body {
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    color: #222;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: #4fc3f7;
+}
+
+.main-container {
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.rotating-text-container {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    background-color: rgba(97, 93, 98, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.countdown-container {
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.countdown-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 120px;
+}
+
+.time-box span:first-child {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.time-box .label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #ddd;
+}
+
+.content-section {
+    padding: 80px 20px;
+    background-color: #fff;
+}
+
+.section-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-content h2 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.emotion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+.emotion-form .top-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.emotion-form .mini-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.emotion-form .input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.emotion-form label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.emotion-form input[type="text"],
+.emotion-form input[type="email"],
+.emotion-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.emotion-form input[type="text"]:focus,
+.emotion-form input[type="email"]:focus,
+.emotion-form textarea:focus {
+    outline: none;
+    border-color: #4fc3f7;
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.2);
+}
+
+.emotion-form .agreement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.emotion-form .agreement label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #555;
+}
+
+.emotion-form button[type="submit"] {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4fc3f7;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.emotion-form button[type="submit"]:hover {
+    background-color: #29b6f6;
+}
+
+.content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin: 40px 0;
+    padding: 30px 0;
+}
+
+.content h3 {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+
+.content p {
+    font-size: 1rem;
+    color: #555;
+}
+
+footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 0.95rem;
+    margin-top: 40px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .main-container {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    .countdown-container h2 {
+        font-size: 1.5rem;
+    }
+    .time-box {
+        min-width: 100px;
+    }
+    .time-box span:first-child {
+        font-size: 2.5rem;
+    }
+}

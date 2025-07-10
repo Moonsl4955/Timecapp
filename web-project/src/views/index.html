@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>사용자 입력 폼</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>미래의 나에게 편지쓰기</h1>
+    </header>
+    <main>
+        <form id="user-input-form" action="/submit" method="POST">
+            <div>
+                <label for="nickname">닉네임:</label>
+                <input type="text" id="nickname" name="nickname" required>
+            </div>
+            <div>
+                <label for="email">이메일:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="content">편지 내용:</label>
+                <textarea id="content" name="content" rows="5" required></textarea>
+            </div>
+            <div>
+                <input type="checkbox" id="privacy" name="privacy" required>
+                <label for="privacy">개인정보 처리방침에 동의합니다.</label>
+            </div>
+            <button type="submit">보내기</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2023 Timecap. 모든 권리 보유.</p>
+    </footer>
+</body>
+</html>
