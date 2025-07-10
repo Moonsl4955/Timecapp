@@ -1,0 +1,410 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+       scroll-behavior: smooth;
+    
+}
+
+.background-distort {
+    position: fixed;
+    z-index: -1;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background-color: #f8f9fa;
+    background-image: url('../images/1082.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: url(#wavy);
+    pointer-events: none;
+    
+}
+
+/* 기본 레이아웃 */
+body {
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    color: #222;
+    
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 헤더와 네비게이션 */
+.site-header {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    /* 스크롤 시 상단에 고정되도록 설정 */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* 다른 요소들 위에 표시되도록 z-index 설정 */
+    width: 100%;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover {
+    color: #4fc3f7;
+}
+
+/* 콘텐츠 영역 */
+.main-container {
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* 요소들을 세로로 쌓기 위해 변경 */
+    gap: 30px; /* 타이머와 텍스트 사이의 간격 */
+    padding: 40px 20px; /* 상하좌우 여백 추가 */
+}
+
+/* 5초마다 바뀌는 텍스트 컨테이너 스타일 */
+.rotating-text-container {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 400;
+    background-color: rgba(97, 93, 98, 0.3);
+    padding: 50px 20px; /* 좌우 패딩을 0으로 줄여서 효과를 명확히 확인 */
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+#rotating-text {
+    transition: opacity 0.5s ease-in-out;
+}
+#rotating-text.fade-out {
+    opacity: 0;
+}
+
+/* 카운트다운 타이머 스타일 */
+.countdown-container {
+    text-align: center;
+    color: #fff;
+    background-color: rgba(48, 47, 47, 0.5);
+    padding: 40px 20px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.countdown-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 120px;
+}
+
+.time-box span:first-child {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.time-box .label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 추가된 콘텐츠 섹션 및 폼 스타일 */
+.content-section {
+    padding: 80px 20px;
+    background-color: rgba(255,255,255,0.55); /* 반투명 흰색 배경 */
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    margin: 60px auto 60px auto;
+    max-width: 820px;
+    position: relative; /* 추가: top 적용을 위해 */
+    top: 400px;
+}
+
+.section-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-content h2 {
+    font-size: 2.8rem;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Form Styles */
+.emotion-form {
+    background: rgba(255,255,255,0.95); /* 더 진한 흰색 배경 */
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    padding: 40px 28px;
+    /* 기존 코드 유지 */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+
+.emotion-form .top-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.emotion-form .mini-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.emotion-form .input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.emotion-form label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+.emotion-form input[type="text"],
+.emotion-form input[type="email"],
+.emotion-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.emotion-form input[type="text"]:focus,
+.emotion-form input[type="email"]:focus,
+.emotion-form textarea:focus {
+    outline: none;
+    border-color: #4fc3f7;
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.2);
+}
+
+.emotion-form .agreement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.emotion-form .agreement label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #555;
+}
+
+.emotion-form button[type="submit"] {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4fc3f7;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.emotion-form button[type="submit"]:hover {
+    background-color: #29b6f6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin: 40px 0;
+    padding: 30px 0;
+}
+
+.content h3 {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+
+.content p {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* ====== 외계인 설명 스타일 추가 ====== */
+.aliens-section { /* 추가 */
+  top: 200px;
+  padding: 60px 0;
+  min-height: 420px;
+  position: relative;
+  scroll-margin-top: 100px;
+
+  display: flex;
+  background: rgba(164, 188, 223, 0.2);
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.aliens-list { /* 추가 */
+  max-width: 600px;
+  margin: 0 auto;
+}
+.alien-row { /* 추가 */
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+.alien-img { /* 추가 */
+  width: 80px;
+  height: 90px;
+  object-fit: contain;
+  margin-right: 22px;
+  flex-shrink: 0;
+}
+.speech-bubble { /* 추가 */
+  background: #e1f5fe;
+  border-radius: 16px;
+  padding: 18px 23px;
+  position: relative;
+  font-size: 1.5rem;
+  color: #222;
+  min-width: 180px;
+  max-width: 360px;
+  box-shadow: 1px 2px 8px rgba(110,150,255,0.08);
+}
+.speech-bubble:before { /* 추가 */
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 22px;
+  width: 0; height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 18px solid #e1f5fe;
+}
+@media (max-width: 600px) {
+  .aliens-list { max-width: 96vw; }
+  .alien-row { margin-bottom: 28px; }
+  .alien-img { width: 54px; height: 60px; margin-right: 11px; }
+  .speech-bubble { font-size: 0.97rem; min-width: 120px; padding: 11px 12px; }
+  .speech-bubble:before {
+    left: -12px; top: 12px;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 12px solid #e1f5fe;
+  }
+}
+/* ====== 외계인 설명 스타일 추가 끝 ====== */
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .main-container {
+        flex-direction: column;
+                flex-direction: column;
+        padding: 20px 0;
+    }
+    .countdown-container h2 {
+        font-size: 1.5rem;
+    }
+    .time-box {
+        min-width: 100px;
+    }
+    .time-box span:first-child {
+        font-size: 2.5rem;
+    }
+}

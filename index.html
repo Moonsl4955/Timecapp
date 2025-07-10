@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>timecap.web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <svg style="display:none;">
+  <filter id="wavy">
+    <feTurbulence id="turb" baseFrequency="0.02 0.03" numOctaves="2" seed="2"/>
+    <feDisplacementMap in2="turb" in="SourceGraphic" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+    
+</head>
+<body>
+
+<div class="background-distort"></div>
+
+    <header class="site-header">
+        <div class="container">
+           <h1 class="logo">Timecap</h1>
+        
+        
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">홈</a></li>
+                    <li><a href="#aliens-section">설명</a></li>
+                    <li><a href="#letter-form">편지쓰기</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="countdown-container">
+            <h2>Waiting for 2026</h2>
+            <div id="countdown-timer">              
+                <div class="time-box">
+                    <span id="days">0</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours">0</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">0</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">0</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="rotating-text-container">
+            <p id="rotating-text"></p>
+        </div>
+
+
+          <section class="aliens-section" id="aliens-section">
+          <div class="aliens-list">
+            <div class="alien-row">
+              <img src="images/alien2.png" alt="외계인1" class="alien-img">
+              <div class="speech-bubble">
+                <strong>외계인 A</strong><br>
+                타임캡슐에 당신의 이야기를 담아보세요! 미래의 누군가가 이 메시지를 읽게 될 거예요.
+              </div>
+            </div>
+            <div class="alien-row">
+              <img src="images/alien2.png" alt="외계인2" class="alien-img">
+              <div class="speech-bubble">
+                <strong>외계인 B</strong><br>
+                다음 년의 나에게, 아니면 나의 친구에게 보내봐요!
+              </div>
+            </div>
+            <div class="alien-row">
+              <img src="images/alien2.png" alt="외계인3" class="alien-img">
+              <div class="speech-bubble">
+                <strong>외계인 C</strong><br>
+                여러분의 특별한 순간을 소중하게 보관할 수 있어요!
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ====== construction/skr.html 설명 부분 추가 끝 ====== -->
+
+
+
+
+
+    </main>
+
+
+
+
+
+        <section id="letter-form" class="content-section">
+        <div class="section-content">
+            <h2>미래의 나에게 보내는 편지</h2>
+            <form class="emotion-form" id="letterForm">
+                <div class="top-row">
+                  <div class="mini-input">
+                    <label for="nickname">닉네임</label>
+                    <input type="text" id="nickname" name="nickname" autocomplete="off" required>
+                  </div>
+                  <div class="mini-input">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" autocomplete="off" required>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="content" class="main-label">편지 내용</label>
+                  <textarea id="content" name="content" rows="9" required></textarea>
+                </div>
+                <div class="agreement">
+                  <input type="checkbox" id="privacy" name="privacy" required>
+                  <label for="privacy">개인정보 처리방침에 동의합니다.</label>
+                </div>
+                <button type="submit">보내기</button>
+            </form>
+        </div>
+    </section>
+    
+                    
+  
+
+
+
+    <script>
+        // 2026년 1월 1일 0시까지 카운트다운
+        const countdown = () => {
+            const targetDate = new Date("2026-01-01T00:00:00");
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                document.getElementById('countdown-timer').innerHTML = "<h2>Happy New Year!</h2>";
+                clearInterval(interval);
+                return;
+            }
+
+            document.getElementById('days').innerText = Math.floor(difference / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('minutes').innerText = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('seconds').innerText = Math.floor((difference % (1000 * 60)) / 1000);
+        };
+
+        const interval = setInterval(countdown, 1000);
+        countdown(); // 페이지 로드 시 즉시 실행하여 깜빡임 방지
+
+        // 5초마다 텍스트 변경
+        const rotatingTexts = [
+            "To my future self",
+            "미래의 당신에게 전하는 메시지",
+            "모든 순간을 소중하게."
+        ];
+        let textIndex = 0;
+        const rotatingElem = document.getElementById('rotating-text');
+
+        // 초기 텍스트 설정
+        rotatingElem.textContent = rotatingTexts[textIndex];
+
+        setInterval(() => {
+            rotatingElem.classList.add('fade-out'); // 텍스트를 투명하게 만듦
+            setTimeout(() => {
+                textIndex = (textIndex + 1) % rotatingTexts.length;
+                rotatingElem.textContent = rotatingTexts[textIndex]; // 텍스트 변경
+                rotatingElem.classList.remove('fade-out'); // 다시 보이게 함
+            }, 500); // CSS의 transition 시간(0.5초)과 일치
+        }, 5000);
+
+        let t = 0;
+function animateTurbulence() {
+  t += 0.02;
+  // feTurbulence의 baseFrequency를 시간에 따라 변경
+  const turb = document.getElementById('turb');
+  if (turb) {
+    turb.setAttribute('baseFrequency', `${0.02 + 0.01 * Math.sin(t)} ${0.03 + 0.01 * Math.cos(t)}`);
+  }
+  requestAnimationFrame(animateTurbulence);
+}
+animateTurbulence();
+
+
+
+
+
+
+
+
+
+
+document.getElementById('letterForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+  const data = {
+    nickname: formData.get('nickname'),
+    email: formData.get('email'),
+    content: formData.get('content')
+  };
+  const res = await fetch('http://localhost:3000/api/letter', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  if (res.ok) {
+    alert('저장되었습니다!');
+    this.reset();
+  } else {
+    alert('저장 실패');
+  }
+});
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+
+
+
+</html>
