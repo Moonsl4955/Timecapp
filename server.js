@@ -28,7 +28,7 @@ app.post('/api/letter', async (req, res) => {
 
 
 app.listen(3000, () => {
-  console.log('서버 실행 중: http://localhost:3000');
+  console.log('서버 실행 중: http://localhost:5000');
 });
 
 const nodemailer = require('nodemailer');
